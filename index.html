@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+    <Style>
+        *{
+            background-color: #ecf0f3;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            outline: none;
+        }
+        .container{
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        .calculator{
+            background-color: rgb(17, 180, 180);
+            padding: 15px;
+            border-radius: 35px;
+            box-shadow: inset 5px 5px 12px #cbd80e2f,
+                              5px 5px 12px rgba(180, 178, 40, 0.16);
+            display: grid;
+            grid-template-columns: repeat(4,3fr);        
+                      
+        }
+        input {
+            grid-column: span 4;
+            height: 75px;
+            width: 250px;
+            margin-bottom: 15px;
+            box-shadow: inset -5px -5px 12px #ffffff,
+                        inset  5px 5px 12px rgba(0, 0, 0, .16);
+            border: none;
+            border-radius: 20px;
+            font-size: 1.7rem;
+            text-align: end;
+            padding: 10px;
+            margin: auto;
+            margin-top: 15px;
+            margin-bottom: 15px;
+           
+            
+        }
+        button{
+           border-radius: 50px;
+           width: 50px; 
+           height: 50px;   
+           border: none;
+           margin: 5px;
+           font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: x-large;
+            background-color: #f1f166c7;
+            cursor: pointer;
+        }
+            </Style>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <input type="text" placeholder="0" id="result">
+                <button onclick="display('(')">(</button>
+                <button onclick="display(')')">)</button>
+                <button onclick="clr()">clr</button>
+                <button onclick="del()">Del</button> 
+                <button onclick="display('7')">7</button>
+                <button onclick="display('8')">8</button>
+                <button onclick="display('9')">9</button>
+                <button onclick="display('/')">/</button>
+                <button onclick="display('4')">4</button>
+                <button onclick="display('5')">5</button>
+                <button onclick="display('6')">6</button>
+                <button onclick="display('*')">*</button>
+                <button onclick="display('1')">1</button>
+                <button onclick="display('2')">2</button>
+                <button onclick="display('3')">3</button>
+                <button onclick="display('+')">+</button>
+                <button onclick="display('0')">0</button>
+                <button onclick="display('.')">.</button>
+                <button onclick="calculate('=')">=</button>
+                <button onclick="display('-')">-</button>
+        </div>
+        </div>
+    </div>
+    <script>
+        let result=document.getElementById("result")
+
+        function display(num){
+            result.value += num;
+        }
+        function calculate(){
+            try{
+                result.value=eval(result.value);
+            }
+            catch(error){
+                result.value="Error";
+            } 
+        }
+        function clr()
+        {
+            result.value=" ";
+        }
+        function del()
+        {
+            result.value=result.value.slice(0,-1);
+        }
+    </script>
+</body>
+</html>
